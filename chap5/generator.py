@@ -12,7 +12,7 @@ print(next(squares)) # prints: 9
 
 # print(next(squares))
 
-# 쓸일이 있을까?
+# 언제쓰는걸까?
 
 # set comprehension에 왜 ()을 안쓴지 알겠다.
 cubes_gen = (k**3 for k in range(10))
