@@ -1,0 +1,24 @@
+{% extends "entries/base.html" %}
+{% block title%}Insert a new Entry{% endblock title %}
+{% block page-content %}
+{% if messages %}
+{% for message in messages %}
+<p class="{{ message.tags }}">{{ message }}</p>
+{% endfor %}
+{% endif %}
+<h1>Insert a new Entry</h1>
+<form action="{% url "insert" %}" method="post">
+    {% csrf_token %}
+    {% for field in form.visible_fields %}
+    <div class="form-group">
+        {{field.label_tag}}
+        <input type="text" class="form-control" name="{{field.name}}" maxlength="255" required_id="id_{{field.name}}"  placeholder="Enter {{field.name}}">
+    </div>
+    {% endfor %}
+    <input type="submit" value="Insert">
+</form><br>
+{% endblock page-content %}
+{% block footer %}
+<div><a href="{% url "entries" %}">See your entries.</a></div>
+{% include "entries/footer.html" %}
+{% endblock footer %}

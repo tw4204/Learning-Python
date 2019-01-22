@@ -1,0 +1,27 @@
+{% extends "entries/base.html" %}
+{% block title%}Welcome to the Entry website.{% endblock title %}
+{% block page-content %}
+<h1>Welcome {{ user.first_name }}!</h1>
+<ul class="nav flex-column">
+    <li class="nav-item">
+<div class="home-option">To see the list of your entries
+please click <a href="{% url "entries" %}">here.</a>
+</div>
+    </li>
+    <li class="nav-item">
+<div class="home-option">To insert a new entry please click
+<a href="{% url "insert" %}">here.</a>
+</div>
+    </li>
+    <li class="nav-item">
+<div class="home-option">To login as another user please click
+<a href="{% url "logout" %}">here.</a>
+</div>
+    </li>
+    <li class="nav-item">
+<div class="home-option">To go to the admin panel
+please click <a href="{% url "admin:index" %}">here.</a>
+</div>
+    </li>
+</ul>
+{% endblock page-content %}
